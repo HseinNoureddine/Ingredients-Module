@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_save_before">
+        <observer name="ingredient_observer" instance="Custom\Ingredients\Observer\IngredientProductSave" />
+    </event>
+</config>

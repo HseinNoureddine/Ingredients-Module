@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Custom_Ingredients::css/ingredients.css"/>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Custom\Ingredients\Block\Category\View" name="ingredients.category.view"
+                   template="category/view.phtml">
+                <block class="Custom\Ingredients\Block\Ingredient\IngredientList" name="ingredients.ingredient.list"
+                       template="ingredient/list.phtml" />
+            </block>
+        </referenceContainer>
+    </body>
+</page>

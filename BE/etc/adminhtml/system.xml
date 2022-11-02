@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="custom" translate="label" sortOrder="90000">
+            <label>Custom</label>
+        </tab>
+        <section id="ingredients" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Ingredients</label>
+            <tab>custom</tab>
+            <resource>Custom_Ingredients::ingredient</resource>
+            <group id="ingredient" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Ingredients</label>
+                <field id="ingredient_base_meta_title" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ingredients base meta title</label>
+                </field>
+                <field id="ingredient_base_meta_description" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ingredients base meta description</label>
+                </field>
+                <field id="ingredient_base_meta_keywords" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ingredients base meta keywords</label>
+                </field>
+                <field id="ingredient_url_suffix" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ingredients url suffix</label>
+                </field>
+                <field id="category_url_suffix" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ingredients Category  url suffix</label>
+                </field>
+                <field id="base_route" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Base Route</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

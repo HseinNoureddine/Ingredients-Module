@@ -1,0 +1,19 @@
+<?php
+/** @var \Custom\Ingredients\Block\Catalog\RelatedIngredients $block */
+$collection = $block->getCollection();
+if (!$collection->getSize()) {
+    return;
+}
+?>
+<ul>
+    <?php foreach ($collection as $ingredient) : ?>
+        <li>
+            <h3><a href="<?php echo $ingredient->getIngredientUrl() ?>"><?php echo $ingredient->getIngredientName() ?></a></h3>
+            <?php if ($ingredient->getImageUrl()) : ?>
+                <a href="<?php echo $ingredient->getIngredientUrl() ?>">
+                    <img src="<?php echo $ingredient->getImageUrl() ?>" alt="<?php echo $ingredient->getIngredientName() ?>" style="height: 75px; width: 75px;"/>
+                </a>
+            <?php endif ?>
+        </li>
+    <?php endforeach ?>
+</ul>

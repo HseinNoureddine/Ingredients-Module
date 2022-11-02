@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Custom_Ingredients::custom" title="Ingredients" module="Custom_Ingredients" sortOrder="30"
+             parent="Magento_Catalog::catalog" resource="Magento_Backend::content"/>
+        <add id="Custom_Ingredients::ingredient" title="Ingredients" module="Custom_Ingredients" sortOrder="10"
+             parent="Custom_Ingredients::custom" action="ingredients/ingredient" resource="Custom_Ingredients::ingredient"/>
+        <add id="Custom_Ingredients::category" title="Ingredient Categories" module="Custom_Ingredients" sortOrder="20"
+             parent="Custom_Ingredients::custom" action="ingredients/category" resource="Custom_Ingredients::category"/>
+    </menu>
+</config>

@@ -1,0 +1,217 @@
+.IngredientsList {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &-Grid {
+        width: 75%;
+        background-color: #d3d3d3;
+        overflow: hidden;
+        padding-inline-start: 1px;
+        margin: auto;
+    }
+
+    .Grid {
+        &-List {
+            width: 100%;
+            overflow: hidden;
+            list-style: none;
+            padding-block-end: 1px;
+        }
+    }
+
+    .List-Ingredient {
+        float: inline-start;
+        width: 20%;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        margin: 0px;
+    }
+
+    .Ingredient {
+        &-Wrap {
+            margin: 0px;
+            margin-inline-end: 1px;
+            margin-block-start: 1px;
+            height: 10%;
+            background-color: #fff;
+        }
+    }
+
+    .Wrap {
+        &-Image {
+            padding-block-start: 20px;
+        }
+
+        &-Name {
+            color: #c6c6c6;
+            font-size: 15px;
+            line-height: 15px;
+        }
+
+        &-LearnMore {
+            background-color: #795b7d;
+            cursor: pointer;
+            cursor: hand;
+            text-align: center;
+            color: #fff;
+            width: 100px;
+            height: auto;
+            margin: 0px auto;
+            display: inline-block;
+            position: absolute;
+            inset-inline-start: 50%;
+            margin-inline-start: -50px;
+            font-size: 15px;
+            line-height: 35px;
+            opacity: 0;
+            inset-block-start: 80px;
+            visibility: hidden;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+
+    .Ingredient-Wrap:hover {
+        .Wrap-LearnMore {
+            opacity: 1;
+            visibility: visible;
+            inset-block-start: 50%;
+            pointer-events: none;
+        }
+    }
+
+    &-Letters {
+        list-style: none;
+        border-top: 1px solid #d3d3d3;
+        padding-inline: 100px;
+        padding-inline-end: 39px;
+        clear: both;
+
+        p {
+            float: inline-start;
+            list-style: none;
+            margin-inline-end: 2px;
+            font-size: 13px;
+            line-height: 48px;
+            text-transform: uppercase;
+        }
+
+        &-Label {
+            padding-inline-end: 20px;
+        }
+
+        &-Current {
+            Link {
+                span {
+                    border: 1px solid #666;
+                }
+            }
+        }
+    }
+
+    .Letter {
+        &-Link {
+            border: solid #fff;
+            text-decoration: none;
+            font-weight: bold;
+
+            span {
+                border: 1px solid #fff;
+                padding: 7px 10px;
+                color: #666;
+            }
+        }
+
+        &-Link:hover {
+            span {
+                border: 1px solid black;
+            }
+        }
+    }
+
+    &-Categories {
+        padding: 15px 25px;
+        list-style: none;
+        float: inline-end;
+        width: 7%;
+        height: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline-start: 100px;
+    }
+
+    .Categories {
+        &-Current,
+        &-Category:hover {
+            img {
+                background-color: #562159;
+            }
+
+            .category-tooltip {
+                display: block;
+            }
+        }
+    }
+
+    .Category {
+        float: inline-start;
+        position: relative;
+        margin-inline-start: 10px;
+
+        img {
+            background-color: #4e4b47;
+        }
+
+        &-Label {
+            padding-block-start: 15px;
+            padding-inline-end: 20px;
+            font-size: 6px;
+            line-height: 15px;
+            font-weight: bold;
+            color: #666;
+            text-transform: uppercase;
+            text-align: inline-end;
+        }
+
+        &-Tooltip {
+            white-space: nowrap;
+            font-size: 10px;
+            line-height: 32px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            background: #231f1a;
+            position: absolute;
+            z-index: 999;
+            margin-block-start: 2px;
+            padding: 6px 20px;
+            display: none;
+            width: auto;
+            inset-inline-end: 0;
+        }
+
+        &-Tooltip::before {
+            content: '.';
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 9px 8px 9px;
+            color: #231f1a;
+            text-indent: 9999px;
+            border-color: transparent transparent #231f1a transparent;
+            position: absolute;
+            inset-block-start: -6px;
+            inset-inline-end: 25px;
+        }
+    }
+}

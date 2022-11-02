@@ -1,0 +1,42 @@
+type MetaData @doc(description: "meta title, meta key words and meta description"){
+  metaTitle: String
+  metaKeyWords: String
+  metaDescription: String
+}
+type Product @doc(description: "product information"){
+  id: String
+  name: String
+  img: String
+  url: String
+}
+type Ingredient @doc(description: "data related to a specific ingredient with a specific id"){
+  id: String
+  name: String
+  img: String
+  url: String
+  letter: String
+  description: String
+  metaData: MetaData
+  categoryID: String
+  products: [Product]
+  numberOfProductPages: Int
+}
+type IngredientCollection @doc(description: "get all ingredients can be filtered by letter or category"){
+  ingredients: [Ingredient]
+  numberOfPages: Int
+  baseUrl: String
+}
+type Category @doc(description: "category info"){
+  name: String
+  image: String
+  url: String
+  id: String
+}
+type CategoryCollection @doc(description: "get all categories") {
+  categories: [Category]
+}
+type Query {
+  ingredient(id: String!,pageSize: Int!,pageNumber: Int!): Ingredient @resolver(class: "\\Custom\\Ingredients\\Model\\Resolver\\IngredientResolver")
+  ingredientCollection(filter: String,pageSize: Int!,pageNumber: Int!): IngredientCollection @resolver(class: "\\Custom\\Ingredients\\Model\\Resolver\\IngredientCollectionResolver")
+  categoryCollection: CategoryCollection @resolver(class: "\\Custom\\Ingredients\\Model\\Resolver\\CategoriesResolver")
+}

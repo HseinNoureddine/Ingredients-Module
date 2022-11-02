@@ -1,0 +1,314 @@
+/* LAYOUT ========================================================= */
+
+.ingredients-page .content {
+    margin: 0px 0px 78px 0px;
+}
+
+.ingredients-page .pager .pages strong { margin-left: 39px; }
+.ingredients-page .pager .pages ol { margin-right: 39px;}
+
+/*.page-2cols-right .content  { margin: 60px 39px 78px 39px; } */
+.page-2cols-right .content .layout {  margin-right: 267px; }
+.page-2cols-right .content .layout .content-col {  float: left; position:relative; width: 100%; padding-top: 60px;}
+.page-2cols-right .content .layout .right-col { float: right; position: relative; width: 200px; margin-right: -267px; margin-left: 67px; padding-top: 60px;}
+
+/* INGREDIENT LIST PAGE  ========================================================= */
+
+/* Title */
+
+.igredient-page-title {
+    padding: 25px 39px;
+    float: left;
+    cursor: pointer;
+    cursor: hand;
+}
+.igredient-page-title p {
+    padding: 0px;
+    margin: 0px;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 15px;
+    line-height: 18px;
+    color: #44413c;
+}
+.igredient-page-title h1 {
+    padding: 0px;
+    margin: 0px;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 21px;
+    line-height: 32px;
+    color: #252225;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Category filter */
+
+.ingredient-categories {
+    padding: 25px 39px;
+    list-style: none;
+    float: right;
+}
+.ingredient-categories li {
+    float: left;
+    position: relative;
+    margin-left: 10px;
+}
+.ingredient-categories li.categories-label {
+    padding-top: 15px;
+    padding-right: 20px;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: bold;
+    color: #666;
+    text-transform:
+            uppercase;
+    text-align:
+            right;
+}
+.ingredient-categories li img {
+    background-color: #4e4b47;
+}
+.ingredient-categories li.current img,
+.ingredient-categories li:hover img {
+    background-color: #562159;
+}
+
+/* Category tooltip */
+
+.ingredient-categories li .tooltip {
+    white-space:nowrap;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 21px;
+    line-height: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #fff;
+    background: #231f1a;
+    position: absolute;
+    z-index: 999;
+    margin-top: 2px;
+    padding: 6px 20px;
+    display: none;
+    width: auto;
+    right: 0;
+}
+.ingredient-categories li .tooltip:before {
+    content:'.';
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 0 8.5px 8px 8.5px;
+    color: #231f1a;
+    text-indent: 9999px;
+    border-color: transparent transparent #231f1a transparent;
+    position: absolute;
+    top: -6px;
+    right: 25px;
+}
+.ingredient-categories li:hover .tooltip {
+    display: block;
+}
+
+/* Ingredient Letters filter */
+
+.ingredient-letters {
+    list-style: none;
+    border-top: 1px solid #d3d3d3;
+    padding-left: 39px;
+    padding-right: 39px;
+    clear: both;
+}
+.ingredient-letters li {
+    float: left;
+    margin-right: 2px;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 13px;
+    line-height: 48px;
+    color: #666;
+    text-transform: uppercase;
+}
+.ingredient-letters li.letters-label {
+    padding-right: 20px;
+}
+.ingredient-letters li a {
+    text-decoration: none;
+    color: #666;
+    font-weight: bold;
+}
+.ingredient-letters li a span {
+    border: 1px solid #fff;
+    padding: 7px 10px;
+}
+.ingredient-letters li a:hover span {
+    border: 1px solid #666;
+}
+.ingredient-letters li.current a span {
+    border: 1px solid #666;
+}
+
+/* Ingredients grid */
+.ingredients-grid-wrap {
+    width: 100%;
+    /*background-color: #d3d3d3; temp removal*/
+    overflow: hidden;
+    padding-left: 1px;
+}
+.ingredients-grid {
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    padding-bottom: 1px;
+}
+.ingredients-grid .ingredient {
+    float: left;
+    width: 20%;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.ingredients-grid .ingredient .wrap {
+    margin: 0px;
+    margin-right: 1px;
+    margin-top: 1px;
+    height: 220px;
+    background-color: #fff;
+}
+.ingredients-grid .ingredient .image {
+    padding-top: 20px;
+}
+.ingredients-grid .ingredient .name {
+    color: #c6c6c6;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 15px;
+    line-height: 15px;
+}
+.ingredients-grid .ingredient .learn-more {
+    background-color: #795b7d;
+    cursor:pointer;
+    cursor:hand;
+    text-align: center;
+    font-family: "zurich_cn_tl", "Arial";
+    color: #fff;
+    width: 100px;
+    height: auto;
+    margin: 0px auto;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    font-size: 15px;
+    line-height:35px;
+    opacity:0;
+    top:80px;
+    visibility:hidden;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ingredients-grid .ingredient:hover .learn-more {
+    opacity:1;
+    visibility:visible;
+    top:90px;
+}
+
+/* INGREDIENT PAGE  ========================================================= */
+
+.ingredient-block .title {
+    font-size: 30px;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.ingredient-block .description {
+    color: #4a484a;
+}
+.ingredient-block .image {
+    float: right;
+    display: block;
+    clear: left;
+    margin-left: 60px;
+    margin-bottom: 10px;
+    z-index: 1;
+}
+
+/* Same category ingredients */
+.samecat-ingredients-block {
+    border-top: 2px solid #795b7d;
+    float: left;
+    text-align: center;
+}
+.samecat-ingredients-block .title {
+    color: #795b7d;
+    text-transform: uppercase;
+    font-family: "zurich_cn_tl", "Arial";
+    font-size: 16px;
+    line-height: 34px;
+    font-weight: bold;
+}
+.samecat-ingredients-block ul {
+    list-style: none;
+    position: relative;
+    margin-top: 20px;
+}
+.samecat-ingredients-block ul li {
+    display: block;
+    float: left;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-family: Arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.2;
+    cursor: pointer;
+    cursor: hand;
+    color: #6c6c6c;
+}
+.samecat-ingredients-block ul li a {
+    color: #6c6c6c;
+}
+.samecat-ingredients-block ul li.even {
+    margin-left: 10px;
+}
+.samecat-ingredients-block ul li p {
+    padding: 0px 5px;
+    line-height: 1.1;
+}
+.samecat-ingredients-block ul li img {
+    width: 90px;
+}
+
+.samecat-ingredients-block ul li span {
+    display: block;
+    border: 1px solid #e8e8e8;
+    width: 93px;
+    height: 130px;
+    text-align: center;
+    overflow: hidden;
+}
+.samecat-ingredients-block ul li:hover span {
+    border: 1px solid #c1a2c7;
+}
+.samecat-ingredients-block ul li:hover a {
+    color: #795b7d;  text-decoration: none;
+}
+
+/* CLEARS  ========================================================= */
+
+.ingredient-categories:after,
+.ingredient-letters:after,
+ul.ingredients-grid:after  {
+    display:block;
+    content:".";
+    clear:both;
+    font-size:0;
+    line-height:0;
+    height:0;
+    overflow:hidden;
+}

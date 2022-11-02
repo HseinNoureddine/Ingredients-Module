@@ -1,0 +1,12 @@
+<?php
+$ingredient = $block->getIngredient();
+// @codingStandardsIgnoreFile
+/** @var $block \Custom\Ingredients\Block\Ingredient\View */
+?>
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<?= $block->escapeHtmlAttr($block->stripTags($ingredient->getIngredientName())) ?>" />
+<?php if ($ingredient->getIngredientImage()): ?>
+<meta property="og:image" content="<?= $block->escapeUrl($ingredient->getImageUrl()) ?>" />
+<?php endif; ?>
+<meta property="og:description" content="<?= $block->escapeHtmlAttr($block->stripTags($ingredient->getMetaDescription())) ?>" />
+<meta property="og:url" content="<?= $block->escapeUrl($ingredient->getIngredientUrl()) ?>" />

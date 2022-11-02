@@ -1,0 +1,32 @@
+<?php
+$collection = $block->getCategoryIngredients();
+$category = $block->getCategory();
+?>
+
+
+<?php if (!empty($collection)): ?>
+    <div class="block samecat-ingredients-block">
+        <h2 class="title"><?php echo $category->getCategoryName() ?></h2>
+        <ul id="samecat-ingredients">
+            <?php foreach ($collection as $item): ?>
+                <li>
+                    <span>
+                        <?php if ($item->getIngredientImage()): ?>
+                            <a href="<?php echo $item->getIngredientUrl() ?>" title="<?php echo $item->getIngredientName() ?>" >
+                            <img src="<?php echo $item->getImageUrl() ?>" alt="<?php echo $item->getIngredientName();?>"/></a>
+                        <?php endif; ?>
+                        <p><a href="<?php echo $item->getIngredientUrl() ?>" title="<?php echo $item->getIngredientName();?>"><?php echo $item->getIngredientName();?></a></p>
+                    </span>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        require(["jquery", "mage/decorate"], function($){
+            $('#samecat-ingredients').decorate('list', true);
+        });
+
+    </script>
+<?php else: ?>
+<p>No ingredients!</p>
+<?php endif; ?>

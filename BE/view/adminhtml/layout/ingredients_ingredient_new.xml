@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="ingredients_ingredient_form"/>
+        </referenceContainer>
+    </body>
+</page>

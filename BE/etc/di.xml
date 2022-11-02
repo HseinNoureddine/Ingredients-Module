@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Custom\Ingredients\Api\IngredientRepositoryInterface" type="Custom\Ingredients\Model\IngredientRepository" />
+    <preference for="Custom\Ingredients\Api\Data\IngredientInterface" type="Custom\Ingredients\Model\Ingredient" />
+    <preference for="Custom\Ingredients\Api\Data\IngredientSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Custom\Ingredients\Api\CategoryRepositoryInterface" type="Custom\Ingredients\Model\CategoryRepository" />
+    <preference for="Custom\Ingredients\Api\Data\CategoryInterface" type="Custom\Ingredients\Model\Category" />
+    <preference for="Custom\Ingredients\Api\Data\CategorySearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Custom\Ingredients\Api\Data\IngredientAttributeInterface" type="Custom\Ingredients\Model\ResourceModel\Eav\Attribute" />
+    <preference for="Custom\Ingredients\Api\IngredientAttributeRepositoryInterface" type="Custom\Ingredients\Model\Ingredient\Attribute\Repository" />
+    <preference for="Custom\Ingredients\Api\CategoryAttributeRepositoryInterface" type="Custom\Ingredients\Model\Category\Attribute\Repository" />
+
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Custom\Ingredients\Api\Data\IngredientInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">custom_ingredient_entity</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+                <item name="Custom\Ingredients\Api\Data\CategoryInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">custom_ingredient_category_entity</item>
+                    <item name="identifierField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Custom\Ingredients\Api\Data\IngredientInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+                <item name="Custom\Ingredients\Api\Data\CategoryInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Custom\Ingredients\Ui\Component\Ingredient\Listing\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Custom\Ingredients\Model\ResourceModel\Ingredient\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RefGridFilterPool</argument>
+        </arguments>
+    </type>
+    <type name="Custom\Ingredients\Ui\Component\Category\Listing\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Custom\Ingredients\Model\ResourceModel\Category\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">RefGridFilterPool</argument>
+        </arguments>
+    </type>
+    <virtualType name="RefGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="ingredients_ingredient_listing_data_source" xsi:type="string">Custom\Ingredients\Model\ResourceModel\Ingredient\Grid\Collection</item>
+                <item name="ingredients_category_listing_data_source" xsi:type="string">Custom\Ingredients\Model\ResourceModel\Category\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Custom\Ingredients\Model\ResourceModel\Ingredient\Grid\Collection">
+        <arguments>
+            <argument name="eventPrefix" xsi:type="string">custom_ingredients_ingredient_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">custom_ingredients_ingredient_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Custom\Ingredients\Model\ResourceModel\Ingredient</argument>
+        </arguments>
+    </type>
+    <type name="Custom\Ingredients\Model\ResourceModel\Category\Grid\Collection">
+        <arguments>
+            <argument name="eventPrefix" xsi:type="string">custom_ingredients_category_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">custom_ingredients_category_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Custom\Ingredients\Model\ResourceModel\Category</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,8 @@
+<?php $ingredient = $block->getIngredient(); ?>
+<div class="ingredient-block">
+    <img class="image" src="<?php echo $ingredient->getImageUrl()?>" width="200" height="200"/>
+    <h1 class="title"><?php echo $ingredient->getIngredientName() ?></h1>
+    <div class="description"><?php echo $ingredient->getDescription() ?></div>
+</div>
+<?php echo $this->getChildHtml('custom_ingredients.ingredient.ingredient.products') ?>
+

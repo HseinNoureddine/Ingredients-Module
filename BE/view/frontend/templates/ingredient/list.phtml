@@ -1,0 +1,60 @@
+<?php 
+$categories = $block->getCategories(); 
+$letters = $block->getLetters();
+$letterKey = $block->getLetterKey();
+$ingredients = $block->getIngredientCollection();
+?>
+<div class="igredient-page-title" onClick="window.location='<?php echo $block->getBaseIngredientsUrl(); ?>'">
+    <p><?php echo __('Discover our') ?></p><h1><?php echo __('Key Ingredients') ?></h1>
+</div>
+<?php if (!empty($categories)): ?>
+    <ul class="ingredient-categories">
+        <?php foreach ($categories as $category): ?>
+        <li <?php if($block->getCurrentCategory() == $category->getId()):?> class="current"<?php endif; ?>>
+            <a href="<?php echo $category->getCategoryUrl() ?>" title="<?php echo $category->getCategoryName() ?>">
+                <?php if ($category->getImageUrl()): ?>
+                    <img src="<?php echo $category->getImageUrl(); ?>" alt="<?php echo $category->getCategoryName() ?>" />
+                <?php else: ?>
+                    <?php echo $category->getCategoryName() ?>
+                <?php endif; ?>
+            </a>
+            <span class="tooltip"><?php echo $category->getCategoryName() ?></span>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<?php if (!empty($letters)): ?>
+    <ul class="ingredient-letters">
+        <li class="letters-label"><?php echo __('Filter by letter') ?>&nbsp;&nbsp;</li>
+        <?php foreach ($letters as $letter => $letterUrl): ?>
+            <li <?php if($letterKey == $letter):?> class="current"<?php endif; ?>>
+                <a href="<?php echo $letterUrl ?>" title="<?php echo $letter ?>"><span><?php echo $letter ?></span></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>
+
+<div class="ingredients-grid-wrap">
+    <ul class="ingredients-grid">
+        <?php if (!empty($ingredients)): ?>
+            <?php foreach ($ingredients as $ingredient): ?>
+                <li class="ingredient">
+                    <div class="wrap">
+                        <?php if ($ingredient->getImageUrl()): ?>
+                            <div class="image">
+                                <a href="<?php echo $ingredient->getIngredientUrl() ?>" >
+                                    <img src="<?php echo $ingredient->getImageUrl() ?>" alt="<?php echo $ingredient->getIngredientName();?>" />
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                        <span class="name"><?php echo $ingredient->getIngredientName();?></span>
+                        <span class="learn-more" onClick="window.location='<?php echo $ingredient->getIngredientUrl() ?>'"><?php echo __('Learn more') ?></span>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p><?php echo __('No ingredients found!') ?></p>
+        <?php endif; ?>
+    </ul>
+</div>

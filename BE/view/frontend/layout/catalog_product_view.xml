@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Stenders_Ingredients
+ *
+ * @category Stenders
+ * @package  Stenders_Ingredients
+ * @author   Hussein Noureddine <hussein.noureddine@scandiweb.com>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details">
+            <block class="Custom\Ingredients\Block\Catalog\RelatedIngredients" name="ingredient.tab" as="custom_ingredients.ingredient"
+                   template="Custom_Ingredients::catalog/related_ingredients.phtml" group="detailed_info">
+            </block>
+        </referenceBlock>
+    </body>
+</page>

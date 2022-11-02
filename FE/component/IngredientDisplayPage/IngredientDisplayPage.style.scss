@@ -1,0 +1,51 @@
+.IngredientDisplayPage {
+    display: grid;
+    place-items: center;
+
+    &-Block {
+        width: 80%;
+        border-bottom: solid #4a484a 1px;
+
+        &-Title {
+            font-size: 30px;
+            line-height: 1.05;
+            margin-block: 20px;
+            margin-block-start: 10px;
+        }
+
+        &-Description {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a484a;
+        }
+
+        &-Image {
+            float: inline-end;
+            display: block;
+            clear: inline-start;
+            margin-inline-start: 60px;
+            margin-block: 10px;
+            z-index: 1;
+            width: 120px;
+            height: 120px;
+            margin-inline-end: 100px;
+        }
+    }
+
+    &-Grid {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+
+        li {
+            margin: 1em;
+            width: 200px;
+            height: 300px;
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+}
