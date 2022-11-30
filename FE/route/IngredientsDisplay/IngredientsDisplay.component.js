@@ -6,13 +6,14 @@ import IngredientDisplayPage from '../../component/IngredientDisplayPage';
 export class IngredientsDisplayComponent extends PureComponent {
     static propTypes = {
         ingredient: PropTypes.arrayOf(PropTypes.string).isRequired,
+        cleanUrl: PropTypes.string.isRequired,
         baseUrl: PropTypes.string.isRequired
     };
 
     render() {
-        const { ingredient, baseUrl } = this.props;
+        const { ingredient, cleanUrl, baseUrl } = this.props;
         return (
-            <IngredientDisplayPage ingredient={ ingredient } baseUrl={ baseUrl } />
+            <IngredientDisplayPage ingredient={ ingredient } cleanUrl={ cleanUrl } baseUrl={ baseUrl } />
         );
     }
 }

@@ -9,6 +9,7 @@ export class IngredientsComponent extends PureComponent {
         filtered: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
         letter: PropTypes.arrayOf(PropTypes.string).isRequired,
         categories: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+        cleanUrl: PropTypes.string.isRequired,
         baseUrl: PropTypes.string.isRequired,
         numberOfPages: PropTypes.number.isRequired,
         isPagination: PropTypes.bool.isRequired
@@ -16,7 +17,7 @@ export class IngredientsComponent extends PureComponent {
 
     render() {
         const {
-            categories, letter, filtered, baseUrl, numberOfPages, isPagination
+            categories, letter, filtered, cleanUrl, numberOfPages, isPagination, baseUrl
         } = this.props;
 
         return (
@@ -24,6 +25,7 @@ export class IngredientsComponent extends PureComponent {
               items={ filtered }
               letters={ letter }
               categories={ categories }
+              cleanUrl={ cleanUrl }
               baseUrl={ baseUrl }
               numberOfPages={ numberOfPages }
               isPagination={ isPagination }

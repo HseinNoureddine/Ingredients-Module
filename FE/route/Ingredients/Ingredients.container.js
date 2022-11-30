@@ -164,8 +164,14 @@ export class IngredientsContainer extends PureComponent {
         // unique sorted letters
         const letter = Array.from(new Set(sortedLetters));
         const isPagination = filter === undefined;
+        const cleanUrl = baseUrl
+            .replace('lv/', '')
+            .replace('de/', '')
+            .replace('ru/', '')
+            .replace('en/', '');
+
         return {
-            filtered, letter, categories, baseUrl, numberOfPages, isPagination
+            filtered, letter, categories, cleanUrl, numberOfPages, isPagination, baseUrl
         };
     }
 

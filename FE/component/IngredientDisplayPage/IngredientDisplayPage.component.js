@@ -3,28 +3,32 @@ import { PureComponent } from 'react';
 
 import Pagination from 'Component/Pagination';
 
+import Html from '../../component/Html';
 import Image from '../../component/Image';
 import Link from '../../component/Link';
 
 import './IngredientDisplayPage.style';
+
 /** @namespace Scandipwa/Component/IngredientDisplayPage/Component */
 export class IngredientDisplayPageComponent extends PureComponent {
     static propTypes = {
         ingredient: PropTypes.arrayOf(PropTypes.string),
-        baseUrl: PropTypes.string
+        cleanUrl: PropTypes.string
     };
 
     static defaultProps = {
         ingredient: [],
-        baseUrl: ''
+        cleanUrl: ''
     };
 
     render() {
-        const { ingredient, baseUrl } = this.props;
+        const { ingredient, cleanUrl } = this.props;
         const { numberOfProductPages } = ingredient;
+        const { description } = ingredient;
         if (ingredient.length === 0) {
             return (<h1>loading...</h1>);
         }
+
         function data() {
             return (
                 <>
@@ -43,7 +47,7 @@ export class IngredientDisplayPageComponent extends PureComponent {
                       block="Info"
                       elem="Link"
                     >
-                        <Image src={ `${baseUrl}media/catalog/product/${ item.img}` } />
+                        <Image src={ `${cleanUrl}media/catalog/product/${ item.img}` } />
                     </Link>
                     <div block="Item" elem="Product">
                         <strong block="Product" elem="Name">
@@ -76,14 +80,13 @@ export class IngredientDisplayPageComponent extends PureComponent {
                 <Image
                   block="Block"
                   elem="Image"
-                  src={ `${baseUrl}media/ingredients/${ ingredient.img}` }
+                  src={ `${cleanUrl}media/ingredients/${ ingredient.img}` }
                   width="200"
                   height="200"
                 />
                 <div block="Block" elem="Description">
-                    <h3>{ ingredient.metaData.metaTitle }</h3>
                     <br />
-                    <h4>{ ingredient.metaData.metaDescription }</h4>
+                    <Html content={ description } />
                 </div>
             </div>
             );

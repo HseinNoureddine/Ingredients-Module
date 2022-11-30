@@ -116,7 +116,14 @@ export class IngredientsDisplayContainer extends PureComponent {
             return {};
         }
         const { ingredientCollection: { baseUrl } } = ingredientCollection;
-        return { ingredient, baseUrl };
+        const cleanUrl = baseUrl
+            .replace('ingredients/ingredient/', '')
+            .replace('lv/', '')
+            .replace('de/', '')
+            .replace('ru/', '')
+            .replace('en/', '');
+
+        return { ingredient, cleanUrl, baseUrl };
     }
 
     render() {

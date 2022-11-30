@@ -154,7 +154,7 @@
         &-Current,
         &-Category:hover {
             img {
-                background-color: #562159;
+                border: solid black 1px;
             }
 
             .category-tooltip {
@@ -163,16 +163,17 @@
         }
     }
 
-    .Category {
+    .Categories-Category {
         float: inline-start;
         position: relative;
         margin-inline-start: 10px;
+        width: 10vw;
 
         img {
-            background-color: #4e4b47;
+            background-color: #562159;
         }
 
-        &-Label {
+        .Category-Label {
             padding-block-start: 15px;
             padding-inline-end: 20px;
             font-size: 6px;
@@ -180,10 +181,9 @@
             font-weight: bold;
             color: #666;
             text-transform: uppercase;
-            text-align: inline-end;
         }
 
-        &-Tooltip {
+        .Category-Tooltip {
             white-space: nowrap;
             font-size: 10px;
             line-height: 32px;
@@ -200,7 +200,7 @@
             inset-inline-end: 0;
         }
 
-        &-Tooltip::before {
+        .Category-Tooltip::before {
             content: '.';
             width: 0px;
             height: 0px;

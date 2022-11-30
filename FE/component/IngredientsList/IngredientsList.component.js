@@ -13,6 +13,7 @@ export class IngredientsListComponent extends PureComponent {
         items: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
         letters: PropTypes.arrayOf(PropTypes.string),
         categories: PropTypes.arrayOf(PropTypes.string),
+        cleanUrl: PropTypes.string,
         baseUrl: PropTypes.string,
         numberOfPages: PropTypes.number,
         isPagination: PropTypes.bool.isRequired
@@ -23,17 +24,18 @@ export class IngredientsListComponent extends PureComponent {
         letters: [],
         categories: [],
         numberOfPages: 5,
+        cleanUrl: '',
         baseUrl: ''
     };
 
     render() {
         const {
-            items, letters, categories, isPagination, baseUrl, numberOfPages
+            items, letters, categories, isPagination, cleanUrl, numberOfPages, baseUrl
         } = this.props;
 
         if (items.length === 0) {
             return (
-                    <h1>no data</h1>
+                <h1>no data</h1>
             );
         }
 
@@ -49,7 +51,7 @@ export class IngredientsListComponent extends PureComponent {
                         <div block="Ingredient" elem="Wrap">
                             <Link href={ item.url } to={ `${baseUrl}ingredients/ingredient/${ item.name}` }>
                                 <div block="Wrap" elem="Image">
-                                    <Image src={ `${baseUrl}media/ingredients/${ item.img}` } />
+                                    <Image src={ `${cleanUrl}media/ingredients/${ item.img}` } />
                                 </div>
                             </Link>
                             <span block="Wrap" elem="Name">{ item.name }</span>

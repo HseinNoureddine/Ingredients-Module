@@ -165,7 +165,7 @@ class IngredientResolver implements ResolverInterface
             $ingredient["name"] = $product->getIngredientName();
             $ingredient["img"] =  $product->getIngredientImage();
             $ingredient["url"] = $product->getIngredientUrl();
-            $ingredient["description"] = $product->getIngredientDescription();
+            $ingredient["description"] = $product->getDescription();
             $ingredient["baseUrl"] = $this->urlInterface->getBaseUrl();
             $ingredient["letter"] = $product->getLetter();
 
